@@ -257,7 +257,7 @@ var initRecentContactList = function (cbOK, cbErr) {
             var sessList = document.getElementsByClassName("sesslist")[0];
             sessList.innerHTML = "";
             if (resp.SessionItem && resp.SessionItem.length > 0) { //如果存在最近会话记录
-
+                console.log(resp.SessionItem)
                 for (var i in resp.SessionItem) {
                     var item = resp.SessionItem[i];
                     var type = item.Type; //接口返回的会话类型

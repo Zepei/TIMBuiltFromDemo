@@ -19,137 +19,21 @@
 
   <body>
     <div class="aio" id="webim_demo">
-      <div class="titlebar">
+      <div class="titlebar" style="position: relative;">
         <img id="p_my_face" />
         <p id="t_my_name"></p>
-        <ul id="t_my_menu">
-          <li>
-            菜单
-            <ul>
-              <li>
-                最近联系人
-                <ul>
-                  <li
-                    id="getRecentContactListMenu"
-                    onclick="getRecentContactList()"
-                  >
-                    最近联系人
-                  </li>
-                </ul>
-              </li>
-              <!-- <li>
-                好友申请
-                <ul>
-                  <li id="getPendencyMenu" onclick="getPendency(false)">
-                    查看好友申请
-                  </li>
-                </ul>
-              </li> -->
-              <li>
-                好友
-                <ul>
-                  <li
-                    id="searchProfileByUserIdMenu"
-                    onclick="searchProfileByUserIdClick()"
-                  >
-                    搜索用户
-                  </li>
-                  <li id="getAllFriendMenu" onclick="getMyFriend()">
-                    我的好友
-                  </li>
-                </ul>
-              </li>
-              <!-- <li>
-                黑名单
-                <ul>
-                  <li id="getBlackListMenu" onclick="getBlackList()">
-                    我的黑名单
-                  </li>
-                </ul>
-              </li> -->
-              <!-- <li>
-                群组申请
-                <ul>
-                  <li
-                    id="getApplyJoinGroupPendencyMenu"
-                    onclick="getApplyJoinGroupPendency()"
-                  >
-                    查看加群申请
-                  </li>
-                </ul>
-              </li> -->
-              <!-- <li>
-                群组
-                <ul>
-                  <li
-                    id="searchGroupByNameMenu"
-                    onclick="searchGroupByNameMenuClick()"
-                  >
-                    搜索群组(按名称)
-                  </li>
-                  <li id="searchGroupMenu" onclick="searchGroupMenuClick()">
-                    搜索群组(按ID)
-                  </li>
-                  <li id="createGroupMenu" onclick="createGroupMenuClick()">
-                    创建群组
-                  </li>
-                  <li id="getMyGroupMenu" onclick="getMyGroup()">我的群组</li>
-                  <li
-                    id="sendCustomGroupNofifyMenu"
-                    onclick="showSendCustomGroupNotifyDialog()"
-                  >
-                    发送群自定义通知
-                  </li>
-                </ul>
-              </li> -->
-              <!-- <li>
-                系统消息
-                <ul>
-                  <li
-                    id="getMyGroupSystemsMenu"
-                    onclick="getMyGroupSystemMsgs()"
-                  >
-                    我的群组系统消息
-                  </li>
-                  <li
-                    id="getMyFriendSystemsMenu"
-                    onclick="getMyFriendSystemMsgs()"
-                  >
-                    我的好友系统消息
-                  </li>
-                  <li
-                    id="getMyProfileSystemsMenu"
-                    onclick="getMyProfileSystemMsgs()"
-                  >
-                    我的资料系统消息
-                  </li>
-                </ul>
-              </li> -->
-              <!--<li>图片-->
-              <!--<ul>-->
-              <!--<li id="uploadPicByBase64Menu" onclick="uploadPicByBase64()">上传图片(Base64)</li>-->
-              <!--</ul>-->
-              <!--</li>-->
-              <!-- <li>
-                设置
-                <ul>
-                  <li
-                    id="setProfilePortraitMenu"
-                    onclick="setProfilePortraitClick()"
-                  >
-                    个人资料
-                  </li>
-                  <li id="quitMenu" onclick="quitClick()">退出</li>
-                </ul>
-              </li> -->
-            </ul>
-          </li>
-        </ul>
+        <button
+          id="new_msg_button"
+          style="position: absolute; right: 10px; top: 5px"
+          onclick="getMyFriend()"
+        >
+          新消息
+        </button>
       </div>
       <div class="sesspart">
         <div class="accordion" id="accordionContact">
           <div class="accordion-group">
-            <div class="accordion-heading">
+            <!-- <div class="accordion-heading">
               <a
                 class="accordion-toggle"
                 data-parent="#accordionContact"
@@ -157,7 +41,7 @@
                 href="#collapseRecentSession"
                 >最近联系人</a
               >
-            </div>
+            </div> -->
             <div class="accordion-body collapse in" id="collapseRecentSession">
               <div class="sesslist"></div>
             </div>
@@ -383,6 +267,7 @@
       id="get_my_friend_dialog"
       role="dialog"
       tabindex="-1"
+      style="height: 70%; width: 70%"
     >
       <div class="modal-dialog-wide">
         <div class="modal-content">
@@ -3418,17 +3303,17 @@
 
       //官方 demo appid,需要开发者自己修改（托管模式）
       // var sdkAppID = 1400104136;
-      var sdkAppID = 1400037025;
-      var accountType = 29887;
+      var sdkAppID = 1400192236;
+      var accountType = 36862;
 
       //当前用户身份
       var loginInfo = {
         sdkAppID: sdkAppID, //用户所属应用id,必填
-        identifier: "webim_test_userid", //当前用户ID,必须是否字符串类型，必填
+        identifier: "test1", //当前用户ID,必须是否字符串类型，必填
         // 'identifier': "user_b", //当前用户ID,必须是否字符串类型，必填
         accountType: accountType, //用户所属应用帐号类型，必填
         userSig:
-          "eJxNjVtvgjAYhv8Lt1tmoa26JbsohABBNx2aYWLSVFrNF*SwtjgXs-8*Qli22*d5Dzdns8geRFE0XW25-WqV8*Qg537AIFVt4QhK9-BTHaDiVhnLO6M0yDEk2hYkF5ZjLf91jSz5oHrmEoQQniGPjlJdW9CKi6Mdpl1KqddHRntR2kBT98JDLnU9jNCftFCpoUIQwfhxOvv9g1OPl*E2SJjY6Y7sJ-MEX87mw4*yQq6uKbYQ55t1W61ssJ-EzWnpN2zBIGQ0FQeWv7xOz5eckK1f0jTwshC-R3dxxCIj3so5SbLMrnfPzvcPcWhcPg__",
+          "eJxlz01PwkAQgOF7f0WzV43sbtlSTDhA*ShhmwjloFw2le7KoG6-trRg-O*GqrGJc33eyWQ*LNu20ZZHd-F*n1baCHPOJLLvbYTR7R9mGSQiNsIpkn8omwwKKWJlZNEiYYxRjLsNJFIbUPBTGFka0uEyeRXtje-9PsZkSKnjdhN4aTGcrf3lNLqhIZ*fglVvMTsGHLQMy1RXedWvF8sd96JD5q6rQS17Y5hMfV7UebzSUF-m-i5-flIXPw0Ok6FuYPPmKu*xcTbe8UGNR6POSQPv8vchZ0CJy1hHT7IoIdVtQDFhhDr4Osj6tL4ASlVdug__",
         //当前用户身份凭证，必须是字符串类型，必填
         identifierNick: null, //当前用户昵称，不用填写，登录接口会返回用户的昵称，如果没有设置，则返回用户的id
         headurl: "img/me.jpg", //当前用户默认头像，选填，如果设置过头像，则可以通过拉取个人资料接口来得到头像信息
@@ -3582,6 +3467,8 @@
           msgflow.onscroll = null;
         },
       };
+      // showAppSelect();
+      // showLoginDialog();
       webimLogin();
     </script>
   </body>

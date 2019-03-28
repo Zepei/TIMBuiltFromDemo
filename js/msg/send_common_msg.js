@@ -115,6 +115,9 @@ function handleMsgSend(msgContent) {
         //提示重发
         showReSend(msg);
     });
+
+    // $("")
+    console.log(selToID)
 }
 
 function showReSend(msg) {

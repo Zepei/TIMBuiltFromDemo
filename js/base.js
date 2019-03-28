@@ -41,6 +41,7 @@ $("input[name=accountMode]").change(function() {
 });
 //选择应用类型
 
+
 function selectApp() {
     var appType = $('input[name="app_type_radio"]:checked').val();
     if (appType == 1) { //测试应用
@@ -78,6 +79,12 @@ function selectApp() {
     }
 }
 
+// 弹出程序选择
+
+function showAppSelect() {
+    $('#select_app_dialog').modal('show');
+}
+
 //弹出登录框
 
 function showLoginDialog() {
@@ -110,6 +117,7 @@ function initDemoApp() {
     $("body").css("background-color", '#2f2f2f');
     document.getElementById("webim_demo").style.display = "block"; //展开聊天界面
     document.getElementById("p_my_face").src = loginInfo.headurl;
+    console.log(loginInfo)
     if (loginInfo.identifierNick) {
         document.getElementById("t_my_name").innerHTML = webim.Tool.formatText2Html(loginInfo.identifierNick);
     } else {

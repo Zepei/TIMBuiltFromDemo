@@ -15,7 +15,8 @@ function updateSessDiv(sess_type, to_id, name, unread_msg_count) {
         } else {
             headUrl = groupHeadUrl;
         }
-        addSess(sess_type, to_id, name, headUrl, unread_msg_count, 'sesslist');
+        // addSess(sess_type, to_id, name, headUrl, unread_msg_count, 'sesslist');
+        addSess(sess_type, to_id, name, headUrl, unread_msg_count, 'sesslist', 'HEAD');
     }
 }
 
@@ -87,8 +88,11 @@ function addSess(sess_type, to_id, name, face_url, unread_msg_count, sesslist, a
     sessDiv.appendChild(delchat);
     if (!addPositonType || addPositonType == 'TAIL') {
         sessList.appendChild(sessDiv); //默认插入尾部
+        console.log("inserting tail")
     } else if (addPositonType == 'HEAD') {
         sessList.insertBefore(sessDiv); //插入头部
+        console.log("inserting head")
+
     } else {
         console.log(webim.Log.error('未知addPositonType' + addPositonType));
     }
@@ -119,7 +123,7 @@ function onSelSess(sess_type, to_id) {
         setSelSessStyleOff(selToID);
 
         //设置之前会话的已读消息标记
-        webim.setAutoRead(selSess, false, false);
+        webim.setAutoRead(selSess, true, true);
 
         //保存当前的消息输入框内容到草稿
         //获取消息内容

@@ -47,6 +47,7 @@ var getLastC2CHistoryMsgs = function(cbOk, cbError) {
     webim.getC2CHistoryMsgs(
         options,
         function(resp) {
+            console.log(resp)
             var complete = resp.Complete; //是否还有历史消息可以拉取，1-表示没有，0-表示有
 
             if (resp.MsgList.length == 0) {

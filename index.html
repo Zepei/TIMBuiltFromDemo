@@ -19,24 +19,10 @@
 
   <body>
     <div class="aio" id="webim_demo">
-      <div class="titlebar" style="position: relative;">
+      <!-- <div class="titlebar" style="position: relative;">
         <img id="p_my_face" />
         <p id="t_my_name"></p>
-        <button
-          id="new_msg_button"
-          style="position: absolute; right: 10px; top: 5px"
-          onclick="getMyFriend()"
-        >
-          新消息
-        </button>
-        <button
-          id="add_friend_button"
-          style="position: absolute; right: 10px; top: 25px"
-          onclick="searchProfileByUserIdClick()"
-        >
-          加好友
-        </button>
-      </div>
+      </div> -->
       <div class="sesspart">
         <div class="accordion" id="accordionContact">
           <div class="accordion-group">
@@ -50,6 +36,20 @@
               >
             </div> -->
             <div class="accordion-body collapse in" id="collapseRecentSession">
+              <div
+                style="width: 27.03vw; height: 4.45vw; background-color: white; display: flex; flex-direction: row; align-items: center"
+              >
+                <input />
+                <button id="new_msg_button" onclick="getMyFriend()">
+                  写消息
+                </button>
+                <button
+                  id="add_friend_button"
+                  onclick="searchProfileByUserIdClick()"
+                >
+                  加好友
+                </button>
+              </div>
               <div class="sesslist"></div>
             </div>
           </div>
@@ -137,7 +137,7 @@
           </button>
         </div>
       </div>
-      <div class="bottom"></div>
+      
     </div>
     <div
       aria-hidden="true"

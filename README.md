@@ -1,0 +1,3 @@
+# TIMBuiltFromDemo
+
+从腾讯给的demo上删elements，保留所有functionalities

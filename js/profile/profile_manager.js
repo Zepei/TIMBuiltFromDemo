@@ -124,7 +124,7 @@ function initSearchProfileTable(data) {
     $('#search_profile_table').bootstrapTable({
         method: 'get',
         cache: false,
-        height: 500,
+        height: 300,
         striped: true,
         pagination: true,
         pageSize: pageSize,

@@ -34,7 +34,7 @@ function initGetMyFriendTable(data) {
     $('#get_my_friend_table').bootstrapTable({
         method: 'get',
         cache: false,
-        height: 500,
+        height: 300,
         striped: true,
         pagination: true,
         sidePagination: 'client',

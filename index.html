@@ -29,6 +29,13 @@
         >
           新消息
         </button>
+        <button
+          id="add_friend_button"
+          style="position: absolute; right: 10px; top: 25px"
+          onclick="searchProfileByUserIdClick()"
+        >
+          加好友
+        </button>
       </div>
       <div class="sesspart">
         <div class="accordion" id="accordionContact">
@@ -267,9 +274,8 @@
       id="get_my_friend_dialog"
       role="dialog"
       tabindex="-1"
-      style="height: 70%; width: 70%"
     >
-      <div class="modal-dialog-wide">
+      <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
             <button

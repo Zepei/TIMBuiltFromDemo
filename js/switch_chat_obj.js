@@ -23,6 +23,10 @@ function updateSessDiv(sess_type, to_id, name, unread_msg_count) {
 //新增一条最近会话
 
 function addSess(sess_type, to_id, name, face_url, unread_msg_count, sesslist, addPositonType) {
+    // TODO: get lastMsg somewhere
+    // need last message to show on twoLines div
+    // and show ... at the end if too long
+    // length limit for towLines is defined in index html and called maxMsgPeak
     var sessDivId = "sessDiv_" + to_id;
     var sessDiv = document.getElementById(sessDivId);
     if (sessDiv) { //先判断是否存在会话DIV，已经存在，则不需要增加
@@ -46,6 +50,12 @@ function addSess(sess_type, to_id, name, face_url, unread_msg_count, sesslist, a
     if (name.length > maxNameLen) { //名称过长，截取一部分
         name = name.substr(0, maxNameLen) + "...";
     }
+
+    // supposed I have the last message of this current session
+    // if(lastMsg.length > maxMsgPeak) {
+    //     lastMsg = lastMsg.substr(0, maxMsgPeak) + "...";
+    // }
+
 
     var delchat = document.createElement("div");
     delchat.className = 'delChat';
@@ -72,9 +82,15 @@ function addSess(sess_type, to_id, name, face_url, unread_msg_count, sesslist, a
     nameDiv.id = "nameDiv_" + to_id;
     nameDiv.className = "name";
     nameDiv.innerHTML = name;
+    
     var badgeDiv = document.createElement("div");
     badgeDiv.id = "badgeDiv_" + to_id;
-    badgeDiv.className = "badge";
+    badgeDiv.className = "customBadge";
+
+    var badgeWrapper = document.createElement("div");
+    badgeWrapper.className = "badgeWrapper"
+    badgeWrapper.appendChild(badgeDiv);
+    
     if (unread_msg_count > 0) {
         if (unread_msg_count >= 100) {
             unread_msg_count = '99+';
@@ -82,10 +98,43 @@ function addSess(sess_type, to_id, name, face_url, unread_msg_count, sesslist, a
         badgeDiv.innerHTML = "<span>" + unread_msg_count + "</span>";
         badgeDiv.style.display = "block";
     }
+
+    var rightDiv = document.createElement("div");
+    rightDiv.className = 'sessRightDiv';
+
+    var firstRow = document.createElement("div");
+    firstRow.className = "firstRow";
+    
+    var twoLines = document.createElement("div");
+    twoLines.className = "towLines";
+    // twoLines.innerHTML = lastMsg;
+    twoLines.innerHTML = "fake two lines fake two lines fake two lines ";
+
+    var sessTime = document.createElement("div");
+    sessTime.className = "sessTime";
+    sessTime.innerHTML = '10:30am';
+
+    firstRow.appendChild(nameDiv);
+    firstRow.appendChild(sessTime);
+
+    
+    rightDiv.appendChild(firstRow);
+    rightDiv.appendChild(twoLines);
+    // rightDiv.appendChild(delchat)
+
+    sessDiv.appendChild(badgeWrapper);
     sessDiv.appendChild(faceImg);
-    sessDiv.appendChild(nameDiv);
-    sessDiv.appendChild(badgeDiv);
-    sessDiv.appendChild(delchat);
+    sessDiv.appendChild(rightDiv);
+    
+    // sessDiv.appendChild(nameDiv);
+    // sessDiv.appendChild(badgeDiv);
+    // sessDiv.appendChild(delchat);
+    
+    
+    
+    
+    
+    
     if (!addPositonType || addPositonType == 'TAIL') {
         sessList.appendChild(sessDiv); //默认插入尾部
         console.log("inserting tail")

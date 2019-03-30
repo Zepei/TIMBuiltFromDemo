@@ -19,108 +19,38 @@
 
   <body>
     <div class="aio" id="webim_demo">
-      <!-- <div class="titlebar" style="position: relative;">
-        <img id="p_my_face" />
-        <p id="t_my_name"></p>
-      </div> -->
       <div class="sesspart">
-        <div class="accordion" id="accordionContact">
-          <div class="accordion-group">
-            <!-- <div class="accordion-heading">
-              <a
-                class="accordion-toggle"
-                data-parent="#accordionContact"
-                data-toggle="collapse"
-                href="#collapseRecentSession"
-                >最近联系人</a
-              >
-            </div> -->
-            <div class="accordion-body collapse in" id="collapseRecentSession">
-              <div
-                style="width: 27.03vw; height: 4.45vw; background-color: white; display: flex; flex-direction: row; align-items: center"
-              >
-                <input />
-                <button id="new_msg_button" onclick="getMyFriend()">
-                  写消息
-                </button>
-                <button
-                  id="add_friend_button"
-                  onclick="searchProfileByUserIdClick()"
-                >
-                  加好友
-                </button>
-              </div>
-              <div class="sesslist"></div>
-            </div>
-          </div>
-          <!-- <div class="accordion-group">
-                <div class="accordion-heading">
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionContact" href="#collapseFriend">
-                        我的好友
-                    </a>
-                </div>
-                <div id="collapseFriend" class="accordion-body collapse">
-                    <div class="sesslist">
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-group">
-                <div class="accordion-heading">
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionContact" href="#collapseGroup">
-                        我的群组
-                    </a>
-                </div>
-                <div id="collapseGroup" class="accordion-body collapse">
-                    <div class="sesslist-group">
-                    </div>
-                </div>
-            </div> -->
+        <div
+          id="searchBar"
+        >
+          <input
+            id="searchMsg"
+            placeholder="搜索消息"
+          />
+          <button id="new_msg_button" onclick="getMyFriend()">
+            <img src="img/writeMsg.svg"/>
+            写消息
+          </button>
+          <!-- <button id="add_friend_button" onclick="searchProfileByUserIdClick()">
+            加好友
+          </button> -->
         </div>
+        <div class="sesslist"></div>
       </div>
       <div class="chatpart">
-        <div class="msgflow"></div>
-        <span id="msg_end" style="overflow:hidden"></span>
-        <div class="editbar">
-          <!-- <a
-            class="chat02_title_btn ctb01"
-            onclick="showEmotionDialog()"
-            title="选择表情"
-          ></a>
-          <a
-            class="chat02_title_btn ctb03"
-            href="#"
-            onclick="selectPicClick()"
-            title="选择图片"
-          ></a>
-          <a
-            class="chat02_title_btn ctb05"
-            href="#"
-            onclick="selectFileClick()"
-            title="选择文件"
-          ></a>
-          <a
-            class="chat02_title_btn ctb04"
-            href="#"
-            onclick="showEditCustomMsgDialog()"
-            title="发送自定义消息"
-          ></a>
-          <div class="wl_faces_box" id="wl_faces_box">
-            <div class="wl_faces_content">
-              <div class="title">
-                <ul>
-                  <li class="title_name">常用表情</li>
-                  <li class="wl_faces_close">
-                    <span onclick="turnoffFaces_box()">&nbsp;</span>
-                  </li>
-                </ul>
-              </div>
-              <div class="wl_faces_main" id="wl_faces_main">
-                <ul id="emotionUL"></ul>
-              </div>
-            </div>
-            <div class="wlf_icon"></div>
-          </div> -->
+        <div
+          id="sessTitle"
+          className="sessTitle"
+          style="justify-content: start; display: flex; align-items: center; background-color: white; width: 100%; height: 4.45vw; margin-bottom: 0.31vw"
+        >
+          <p style="margin: 0; padding: 0">张三</p>
         </div>
+        <div class="msgflow"></div>
+        <div
+          id="msg_end"
+          style="height: 0.39vw; width: 100%; background-color: #e5e5e5"
+        ></div>
+
         <textarea
           class="msgedit"
           cols="82"
@@ -137,7 +67,6 @@
           </button>
         </div>
       </div>
-      
     </div>
     <div
       aria-hidden="true"
@@ -3343,6 +3272,8 @@
       var infoMap = {}; //初始化时，可以先拉取我的好友和我的群组信息
 
       var maxNameLen = 12; //我的好友或群组列表中名称显示最大长度，仅demo用得到
+      // 在sesslist里面现实信息系预览的最大长度，我自己加的！！！！！
+      var maxMsgPeak = 27;
       var reqMsgCount = 15; //每次请求的历史消息(c2c获取群)条数，仅demo用得到
 
       var pageSize = 15; //表格的每页条数，bootstrap table 分页时用到

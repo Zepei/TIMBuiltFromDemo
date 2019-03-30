@@ -20,15 +20,10 @@
   <body>
     <div class="aio" id="webim_demo">
       <div class="sesspart">
-        <div
-          id="searchBar"
-        >
-          <input
-            id="searchMsg"
-            placeholder="搜索消息"
-          />
+        <div id="searchBar">
+          <input id="searchMsg" placeholder="搜索消息" />
           <button id="new_msg_button" onclick="getMyFriend()">
-            <img src="img/writeMsg.svg"/>
+            <img src="img/writeMsg.svg" />
             写消息
           </button>
           <!-- <button id="add_friend_button" onclick="searchProfileByUserIdClick()">
@@ -38,12 +33,8 @@
         <div class="sesslist"></div>
       </div>
       <div class="chatpart">
-        <div
-          id="sessTitle"
-          className="sessTitle"
-          style="justify-content: start; display: flex; align-items: center; background-color: white; width: 100%; height: 4.45vw; margin-bottom: 0.31vw"
-        >
-          <p style="margin: 0; padding: 0">张三</p>
+        <div id="sessTitle" class="sessTitle">
+          <p id="sessTitleName"></p>
         </div>
         <div class="msgflow"></div>
         <div
@@ -51,20 +42,28 @@
           style="height: 0.39vw; width: 100%; background-color: #e5e5e5"
         ></div>
 
-        <textarea
-          class="msgedit"
-          cols="82"
-          id="send_msg_text"
-          onkeydown="onTextareaKeyDown()"
-          rows="5"
-        ></textarea>
-        <div class="sendbar">
-          <button class="sendbtn" onclick="onSendMsg()" type="button">
-            发送
-          </button>
-          <button class="closebtn" onclick="onClose()" type="button">
-            关闭
-          </button>
+        <div id="chatBottom">
+          <div
+            style="padding: 1.09vw 1.33vw;width: 100%;
+            height: 60%;  background: #ffffff;"
+          >
+            <textarea
+              class="msgedit"
+              cols="82"
+              id="send_msg_text"
+              onkeydown="onTextareaKeyDown()"
+              rows="5"
+              placeholder="请输入信息..."
+            ></textarea>
+          </div>
+          <div class="sendbar">
+            <button class="sendbtn" onclick="onSendMsg()" type="button">
+              发送
+            </button>
+            <!-- <button class="closebtn" onclick="onClose()" type="button">
+              关闭
+            </button> -->
+          </div>
         </div>
       </div>
     </div>

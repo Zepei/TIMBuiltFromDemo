@@ -26,7 +26,7 @@ body {
   padding: 0px;
   background: #e5e5e5;
   margin: 20px auto;
-  font: 10px/1.5 "微软雅黑";
+  /* font: 10px/1.5 "微软雅黑"; */
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -110,7 +110,7 @@ body {
 .sesslist {
   /* height: 400px; */
   flex-grow: 1;
-  background: #E5E5E5;
+  background: #e5e5e5;
   border-width: 0px 1px 0px 0px;
   border-color: #d5d6d7;
   border-style: solid;
@@ -152,7 +152,7 @@ body {
   width: 100%;
   height: 7.19vw;
   background-color: #4f65e1;
-  margin-bottom: 0.31vw; 
+  margin-bottom: 0.31vw;
 }
 
 .badgeWrapper {
@@ -293,8 +293,8 @@ body {
 }
 
 .msgflow {
-  width: 525px;
-  height: 380px;
+  width: 100%;
+  height: 37.18vw;
   border: none;
   padding: 20px 6px 0 6px;
   background: #ffffff;
@@ -302,17 +302,61 @@ body {
 }
 .msgflow .onemsg {
   position: relative;
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
 }
+
+.msgflow .onemsgSelf {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.msgflow .onemsg .msgWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 30.55vw;
+  align-items: flex-start;
+}
+
+.msgflow .onemsgSelf .msgWrapperSelf {
+  display: flex;
+  flex-direction: column;
+  width: 30.55vw;
+  align-items: flex-end;
+}
+
 .msgflow .onemsg .msghead {
-  color: green;
-  line-height: 12px;
-  font-size: 12px;
+  justify-content: flex-start;
+  display: flex;
+  width: 30.55vw;
+}
+
+.msgflow .onemsgSelf .msghead {
+  justify-content: flex-end;
+  display: flex;
+  width: 30.55vw;
+}
+
+.headImg {
+}
+
+.headName {
+}
+
+.headTime {
 }
 
 .msgflow .onemsg .msgbody {
-  margin: 0 0 0 18px;
-  line-height: 13px;
-  font-size: 14px;
+  width: 100%;
+  margin: 0;
+}
+
+.msgflow .onemsgSelf .msgbody {
+  width: 100%;
+  margin: 0;
 }
 
 .msgflow .msgbody img {
@@ -455,17 +499,29 @@ body {
 }
 
 .msgedit {
+  /* padding-left: 1.33vw;
+  padding-top: 1.09vw; */
   width: 100%;
-  height: 100px;
+  height: 100%;
   border: none;
   background: #ffffff;
   padding: 0;
   line-height: 1.5;
 }
 
+.msgedit::placeholder {
+  /* padding-left: 1.33vw;
+  padding-top: 1.09vw; */
+  font-family: PingFang SC;
+  font-size: 1.09vw;
+  line-height: normal;
+  color: #b3c1db;
+}
+
 .sendbar {
-  width: 526px;
-  height: 30px;
+  position: relative;
+  width: 100%;
+  height: 40%;
   background-color: white;
   display: flex;
   align-items: center;
@@ -473,9 +529,20 @@ body {
 }
 
 .sendbtn {
-  width: 80px;
-  margin-right: 10px;
-  font: 10px/1.5 "微软雅黑";
+  position: absolute;
+  width: 6.88vw;
+  height: 3.13vw;
+  /* margin-right: 10px;
+  font: 10px/1.5 "微软雅黑"; */
+  background: #4f65e1;
+  border-radius: 2px;
+  bottom: 1.95vw;
+  right: 2.03vw;
+  font-family: PingFang SC;
+  font-size: 1.25vw;
+  line-height: normal;
+  text-align: center;
+  color: #ffffff;
 }
 
 .closebtn {
@@ -628,4 +695,27 @@ body {
 #new_msg_button img {
   width: 1.06vw;
   height: 1.06vw;
+}
+
+.sessTitle {
+  justify-content: start;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  width: 100%;
+  height: 4.45vw;
+  margin-bottom: 0.31vw;
+}
+
+#sessTitleName {
+  font-family: PingFang SC;
+  font-size: 18px;
+  line-height: normal;
+  color: #454f69;
+  padding-left: 1.33vw;
+  margin: 0;
+}
+
+#chatBottom {
+  height: 14.69vw;
 }

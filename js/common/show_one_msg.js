@@ -75,15 +75,16 @@ function addMsg(msg, prepend) {
   }
   var msghead = document.createElement("div");
   var msgbody = document.createElement("div");
-  var msgPre = document.createElement("pre");
+  var msgPre = document.createElement("p");
   msghead.className = "msghead";
   msgbody.className = "msgbody";
+  msgPre.className = "msgPre"
 
   var headImg = document.createElement("img");
-  headImg.className = "headImg";
   var headName = document.createElement("p");
-  headName.className = "headName";
   var headTime = document.createElement("p");
+  headImg.className = "headImg";
+  headName.className = "headName";
   headTime.className = "headTime";
 
   //如果是发给自己的消息
@@ -103,7 +104,7 @@ function addMsg(msg, prepend) {
     headImg.src = fromAccountImage;
     headName.innerHTML = webim.Tool.formatText2Html(fromAccountNick);
     headTime.innerHTML = webim.Tool.formatText2Html(
-      webim.Tool.formatTimeStamp(msg.getTime())
+      webim.Tool.formatTimeStamp(msg.getTime(),"hh:mm")
     );
     msghead.appendChild(headImg);
     msghead.appendChild(headName);
@@ -124,7 +125,7 @@ function addMsg(msg, prepend) {
     headImg.src = fromAccountImage;
     headName.innerHTML = webim.Tool.formatText2Html(fromAccountNick);
     headTime.innerHTML = webim.Tool.formatText2Html(
-      webim.Tool.formatTimeStamp(msg.getTime())
+      webim.Tool.formatTimeStamp(msg.getTime(),"hh:mm")
     );
     msghead.appendChild(headTime);
     msghead.appendChild(headName);

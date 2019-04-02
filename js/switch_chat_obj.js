@@ -6,7 +6,7 @@ function updateSessDiv(sess_type, to_id, name, unread_msg_count) {
     if (unread_msg_count >= 100) {
       unread_msg_count = "99+";
     }
-    badgeDiv.innerHTML = "<span>" + unread_msg_count + "</span>";
+    // badgeDiv.innerHTML = "<span>" + unread_msg_count + "</span>";
     badgeDiv.style.display = "block";
   } else if (badgeDiv == null) {
     //没有找到对应的聊天id
@@ -113,7 +113,7 @@ function addSess(
     if (unread_msg_count >= 100) {
       unread_msg_count = "99+";
     }
-    badgeDiv.innerHTML = "<span>" + unread_msg_count + "</span>";
+    // badgeDiv.innerHTML = "<span>" + unread_msg_count + "</span>";
     badgeDiv.style.display = "block";
   }
 

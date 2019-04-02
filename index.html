@@ -3236,18 +3236,21 @@
       var accountMode = 0;
 
       //官方 demo appid,需要开发者自己修改（托管模式）
-      // var sdkAppID = 1400104136;
-      var sdkAppID = 1400192236;
+      
+      // web sdkAppID = 1400192236
+      // mobile sdkAppID = 1400184624
+      
+      var sdkAppID = 1400184624
       var accountType = 36862;
 
       //当前用户身份
       var loginInfo = {
         sdkAppID: sdkAppID, //用户所属应用id,必填
-        identifier: "test1", //当前用户ID,必须是否字符串类型，必填
+        identifier: "User4", //当前用户ID,必须是否字符串类型，必填
         // 'identifier': "user_b", //当前用户ID,必须是否字符串类型，必填
         accountType: accountType, //用户所属应用帐号类型，必填
         userSig:
-          "eJxlz01PwkAQgOF7f0WzV43sbtlSTDhA*ShhmwjloFw2le7KoG6-trRg-O*GqrGJc33eyWQ*LNu20ZZHd-F*n1baCHPOJLLvbYTR7R9mGSQiNsIpkn8omwwKKWJlZNEiYYxRjLsNJFIbUPBTGFka0uEyeRXtje-9PsZkSKnjdhN4aTGcrf3lNLqhIZ*fglVvMTsGHLQMy1RXedWvF8sd96JD5q6rQS17Y5hMfV7UebzSUF-m-i5-flIXPw0Ok6FuYPPmKu*xcTbe8UGNR6POSQPv8vchZ0CJy1hHT7IoIdVtQDFhhDr4Osj6tL4ASlVdug__",
+        "eJxlj1FPgzAYRd-5FYTXGfdRqFlM9oAMJ0lxIW7G*UIaWliZQG3LmFv870bUiPG*nnNzc8*WbdvOmjxc0jxvu8Zk5k1yx762HXAufqGUgmXUZJ5i-yA-SqF4RgvD1QBdjDECGDuC8caIQnwbG82VP8Ka7bNh46vvA7gz-wr9UUQ5wCRKw3jJp3HxWAXBiTAiYUHyoDvBKix36eRusSTlfVSVU3zc40MgbspeSzl5UUlDSbjqk81a*W0dv1b0dkujZ9W1qE41PO22-Xw*mjSi5j*HwMPIn40vHbjSom0GAYGLXeTBZxzr3foAMUZdvg__",
         //当前用户身份凭证，必须是字符串类型，必填
         identifierNick: null, //当前用户昵称，不用填写，登录接口会返回用户的昵称，如果没有设置，则返回用户的id
         headurl: "img/me.jpg", //当前用户默认头像，选填，如果设置过头像，则可以通过拉取个人资料接口来得到头像信息

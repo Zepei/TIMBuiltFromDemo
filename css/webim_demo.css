@@ -7,6 +7,16 @@ and open the template in the editor.
     Created on : 2015-7-6, 15:55:30
     Author     : peakerdong
 */
+
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
 body {
   background: #e5e5e5;
 }
@@ -199,7 +209,7 @@ body {
 
 .sessinfo-sel .name {
   font-family: PingFang SC;
-  font-size: 16px;
+  font-size: 1.25vw;
   line-height: normal;
 
   color: #ffffff;
@@ -207,22 +217,23 @@ body {
 
 .sessinfo-sel .towLines {
   font-family: PingFang SC;
-  font-size: 14px;
+  font-size: 1.09vw;
   line-height: normal;
   text-align: justify;
 
   color: #dbe5f7;
 }
 
-.face {
-  /* float: left;
+/* .face {
+  float: left;
   width: 40px;
   height: 40px;
-  margin: 5px 5px 5px 10px; */
-}
+  margin: 5px 5px 5px 10px;
+} */
 
 .sessRightDiv {
   margin-left: 1.56vw;
+  margin-right: 1vw;
   height: 100%;
   width: 16.09vw;
   display: flex;
@@ -239,7 +250,7 @@ body {
 .towLines {
   width: 100%;
   font-family: PingFang SC;
-  font-size: 14px;
+  font-size: 1.09vw;
   line-height: normal;
   text-align: justify;
   color: #8d9aaf;
@@ -249,7 +260,7 @@ body {
 
 .sessinfo-sel .sessTime {
   font-family: PingFang SC;
-  font-size: 14px;
+  font-size: 1.09vw;
   line-height: normal;
   text-align: right;
   color: #dbe5f7;
@@ -257,7 +268,7 @@ body {
 
 .sessTime {
   font-family: PingFang SC;
-  font-size: 14px;
+  font-size: 1.09vw;
   line-height: normal;
   text-align: right;
 
@@ -273,7 +284,7 @@ body {
   margin: 15px 0 0 0; */
 
   font-family: PingFang SC;
-  font-size: 16px;
+  font-size: 1.25vw;
   line-height: normal;
 
   color: #454f69;
@@ -305,6 +316,7 @@ body {
   display: flex;
   justify-content: flex-start;
   width: 100%;
+  margin: 1vw 0 1vw 0;
 }
 
 .msgflow .onemsgSelf {
@@ -312,6 +324,7 @@ body {
   display: flex;
   justify-content: flex-end;
   width: 100%;
+  margin: 1vw 0 1vw 0;
 }
 
 .msgflow .onemsg .msgWrapper {
@@ -319,6 +332,8 @@ body {
   flex-direction: column;
   width: 30.55vw;
   align-items: flex-start;
+  box-sizing: border-box;
+  padding: 0 0 0 1.56vw;
 }
 
 .msgflow .onemsgSelf .msgWrapperSelf {
@@ -326,27 +341,77 @@ body {
   flex-direction: column;
   width: 30.55vw;
   align-items: flex-end;
+  box-sizing: border-box;
+  padding: 0 1.56vw 0 0;
+}
+
+.msghead {
+  margin-bottom: 1.09vw;
+  margin-top: 1.09vw;
+  padding: 0;
+  height: 3.56vw;
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.msghead p {
+  padding: 0;
+  margin: 0;
 }
 
 .msgflow .onemsg .msghead {
   justify-content: flex-start;
-  display: flex;
-  width: 30.55vw;
 }
 
 .msgflow .onemsgSelf .msghead {
   justify-content: flex-end;
-  display: flex;
-  width: 30.55vw;
 }
 
 .headImg {
+  width: 3.56vw;
+  height: 3.56vw;
+  border-radius: 50%;
 }
 
-.headName {
+.onemsg .headImg {
+  margin-right: 1.41vw;
 }
 
-.headTime {
+.onemsgSelf .headImg {
+  margin-left: 1.41vw;
+}
+
+.onemsg .headName {
+  margin-right: 1.41vw;
+  font-family: PingFang SC;
+  font-size: 1.25vw;
+  line-height: normal;
+  color: #454f69;
+}
+
+.onemsgSelf .headName {
+  margin-left: 1.41vw;
+  font-family: PingFang SC;
+  font-size: 1.25vw;
+  line-height: normal;
+  color: #454f69;
+}
+
+.onemsg .headTime {
+  margin-right: 1.41vw;
+  font-family: PingFang SC;
+  font-size: 1.09vw;
+  line-height: normal;
+  color: #8d9aaf;
+}
+
+.onemsgSelf .headTime {
+  margin-left: 1.41vw;
+  font-family: PingFang SC;
+  font-size: 1.09vw;
+  line-height: normal;
+  color: #8d9aaf;
 }
 
 .msgflow .onemsg .msgbody {
@@ -361,6 +426,24 @@ body {
 
 .msgflow .msgbody img {
   max-width: 500px;
+}
+
+.msgPre {
+  display: inline;
+  margin: 0;
+  font-family: PingFang SC;
+  font-size: 1.09vw;
+  line-height: normal;
+  text-align: justify;
+  color: #454f69;
+}
+
+.onemsg .msgPre{
+  float: left;
+}
+
+.onemsgSelf .msgPre{
+  float: right;
 }
 
 .editbar {
@@ -425,8 +508,8 @@ body {
   position: relative;
 }
 
-.wl_faces_content .title ul {
-}
+/* .wl_faces_content .title ul {
+} */
 
 .wl_faces_content .title ul li {
   position: absolute;
@@ -459,8 +542,8 @@ body {
   height: 15px;
 }
 
-.wl_faces_main {
-}
+/* .wl_faces_main {
+} */
 
 .wl_faces_main ul {
   margin: 12px 12px;
@@ -507,6 +590,8 @@ body {
   background: #ffffff;
   padding: 0;
   line-height: 1.5;
+  outline: none;
+  resize: none;
 }
 
 .msgedit::placeholder {
@@ -559,7 +644,7 @@ body {
 }
 
 #demo_type_desc {
-  // display : none;
+  /* display : none; */
   color: red;
 }
 

@@ -4,14 +4,15 @@ var dateStart = null;
 var dateEnd = null;
 //newMsgList 为新消息数组，结构为[Msg]
 function onMsgNotify(newMsgList) {
-    //console.warn(newMsgList);
+    console.warn(newMsgList);
     var sess, newMsg;
     //获取所有聊天会话
     var sessMap = webim.MsgStore.sessMap();
 
     for (var j in newMsgList) { //遍历新消息
         newMsg = newMsgList[j];
-
+        // console.log(newMsg);
+        // console.log(newMsg.elems[0].content.text);
         if (!selToID) { //没有聊天对象
             selToID = newMsg.getSession().id();
             selType = newMsg.getSession().type();
@@ -22,7 +23,7 @@ function onMsgNotify(newMsgList) {
             } else {
                 headUrl = groupHeadUrl;
             }
-            addSess(selType, selToID, newMsg.getSession().name(), headUrl, 0, 'sesslist'); //新增一个对象
+            addSess(selType, selToID, newMsg.getSession().name(), headUrl, 0, 'sesslist', newMsg); //新增一个对象
             setSelSessStyleOn(selToID);
         }
         if (newMsg.getSession().id() == selToID) { //为当前聊天对象的消息
@@ -37,11 +38,12 @@ function onMsgNotify(newMsgList) {
 
     for (var i in sessMap) {
         sess = sessMap[i];
+        console.log(sess.msgs()[sess.msgs().length-1].elems[0].content.text)
         if (selToID != sess.id()) { //更新其他聊天对象的未读消息数
             if (!dateStart) {
                 dateStart = new Date();
             }
-            updateSessDiv(sess.type(), sess.id(), sess.name(), sess.unread());
+            updateSessDiv(sess.type(), sess.id(), sess.name(), sess.unread(), sess.msgs()[sess.msgs().length-1].elems[0].content.text, sess.time());
             console.debug(sess.id(), sess.unread());
             dateEnd = new Date();
         }

@@ -68,17 +68,15 @@ function addMsg(msg, prepend) {
 
   if (isSelfSend) {
     onemsg.className = "onemsgSelf";
-    console.log("self");
   } else {
     onemsg.className = "onemsg";
-    console.log("others");
   }
   var msghead = document.createElement("div");
   var msgbody = document.createElement("div");
   var msgPre = document.createElement("p");
   msghead.className = "msghead";
   msgbody.className = "msgbody";
-  msgPre.className = "msgPre"
+  msgPre.className = "msgPre";
 
   var headImg = document.createElement("img");
   var headName = document.createElement("p");
@@ -89,43 +87,19 @@ function addMsg(msg, prepend) {
 
   //如果是发给自己的消息
   if (!isSelfSend) {
-    // msghead.style.color = "blue";
-    //昵称  消息时间
-    // msghead.innerHTML =
-    //   "<img class='headurlClass' src='" +
-    //   fromAccountImage +
-    //   "'>" +
-    //   "&nbsp;&nbsp;" +
-    //   webim.Tool.formatText2Html(
-    //     fromAccountNick +
-    //       "&nbsp;&nbsp;" +
-    //       webim.Tool.formatTimeStamp(msg.getTime())
-    //   );
     headImg.src = fromAccountImage;
     headName.innerHTML = webim.Tool.formatText2Html(fromAccountNick);
     headTime.innerHTML = webim.Tool.formatText2Html(
-      webim.Tool.formatTimeStamp(msg.getTime(),"hh:mm")
+      webim.Tool.formatTimeStamp(msg.getTime(), "hh:mm")
     );
     msghead.appendChild(headImg);
     msghead.appendChild(headName);
     msghead.appendChild(headTime);
   } else {
-    // msghead.style.color = "blue";
-    //昵称  消息时间
-    // msghead.innerHTML =
-    //   "<img class='headurlClass' src='" +
-    //   fromAccountImage +
-    //   "'>" +
-    //   "&nbsp;&nbsp;" +
-    //   webim.Tool.formatText2Html(
-    //     fromAccountNick +
-    //       "&nbsp;&nbsp;" +
-    //       webim.Tool.formatTimeStamp(msg.getTime())
-    //   );
     headImg.src = fromAccountImage;
     headName.innerHTML = webim.Tool.formatText2Html(fromAccountNick);
     headTime.innerHTML = webim.Tool.formatText2Html(
-      webim.Tool.formatTimeStamp(msg.getTime(),"hh:mm")
+      webim.Tool.formatTimeStamp(msg.getTime(), "hh:mm")
     );
     msghead.appendChild(headTime);
     msghead.appendChild(headName);
@@ -186,6 +160,27 @@ function addMsg(msg, prepend) {
       msgflow.scrollTop = msgflow.scrollHeight;
     }, 300);
   }
+
+  // console.log("sessTime_" + msg.getSession().id(),"towLines_" + msg.getSession().id())
+  var sessTime = document.getElementById("sessTime_" + msg.getSession().id());
+  var towLine = document.getElementById("towLines_" + msg.getSession().id());
+  sessTime.innerHTML = webim.Tool.formatText2Html(
+    webim.Tool.formatTimeStamp(msg.getTime(), "hh:mm")
+  );
+  var twoLineText = ""
+  var elems = msg.getElems();
+  var content;
+  elems.forEach(e=>{
+    content = e.getContent().text;
+    twoLineText += content;
+  })
+  if (twoLineText.length > maxMsgPeak) {
+    // 内容过长，截取一部分
+    twoLineText = twoLineText.substr(0, maxMsgPeak) + "...";
+  }
+  towLine.innerHTML = twoLineText;
+  // console.log(towLine.innerHTML)
+
 }
 //把消息转换成Html
 

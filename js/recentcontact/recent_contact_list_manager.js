@@ -260,6 +260,7 @@ var initRecentContactList = function (cbOK, cbErr) {
                 console.log(resp.SessionItem)
                 for (var i in resp.SessionItem) {
                     var item = resp.SessionItem[i];
+                    console.log(item)
                     var type = item.Type; //接口返回的会话类型
                     var sessType, typeZh, sessionId, sessionNick = '',
                         sessionImage = '',
@@ -370,7 +371,7 @@ var initRecentContactList = function (cbOK, cbErr) {
                         };
 
                         //在左侧最近会话列表框中增加一个会话div
-                        addSess(sessType, webim.Tool.formatText2Html(sessionId), webim.Tool.formatText2Html(sessionNick), sessionImage, item.UnreadMsgCount, 'sesslist');
+                        addSess(sessType, webim.Tool.formatText2Html(sessionId), webim.Tool.formatText2Html(sessionNick), sessionImage, item.UnreadMsgCount, 'sesslist', null, item.MsgShow, item.MsgTimeStamp);
                     }
 
                 }

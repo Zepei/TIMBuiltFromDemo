@@ -257,10 +257,10 @@ var initRecentContactList = function (cbOK, cbErr) {
             var sessList = document.getElementsByClassName("sesslist")[0];
             sessList.innerHTML = "";
             if (resp.SessionItem && resp.SessionItem.length > 0) { //如果存在最近会话记录
-                console.log(resp.SessionItem)
+                // console.log(resp.SessionItem)
                 for (var i in resp.SessionItem) {
                     var item = resp.SessionItem[i];
-                    console.log(item)
+                    // console.log(item)
                     var type = item.Type; //接口返回的会话类型
                     var sessType, typeZh, sessionId, sessionNick = '',
                         sessionImage = '',
@@ -405,11 +405,11 @@ var initRecentContactList = function (cbOK, cbErr) {
 function initUnreadMsgCount() {
     var sess;
     var sessMap = webim.MsgStore.sessMap();
-    console.error(sessMap)
+    // console.error(sessMap)
     for (var i in sessMap) {
         sess = sessMap[i];
         // if (selToID && selToID != sess.id()) { //更新其他聊天对象的未读消息数
-            console.error('sess.unread()', sess.unread())
+            // console.error('sess.unread()', sess.unread())
             updateSessDiv(sess.type(), sess.id(), sess.name(), sess.unread());
         // }
     }

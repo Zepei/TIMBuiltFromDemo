@@ -117,7 +117,7 @@ function initDemoApp() {
     $("body").css("background-color", 'pink');
     // document.getElementById("webim_demo").style.display = "block"; //展开聊天界面
     // document.getElementById("p_my_face").src = loginInfo.headurl;
-    console.log(loginInfo)
+    // console.log(loginInfo)
     if (loginInfo.identifierNick) {
         // document.getElementById("t_my_name").innerHTML = webim.Tool.formatText2Html(loginInfo.identifierNick);
     } else {

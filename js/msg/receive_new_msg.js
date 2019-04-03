@@ -4,7 +4,7 @@ var dateStart = null;
 var dateEnd = null;
 //newMsgList 为新消息数组，结构为[Msg]
 function onMsgNotify(newMsgList) {
-    console.warn(newMsgList);
+    // console.warn(newMsgList);
     var sess, newMsg;
     //获取所有聊天会话
     var sessMap = webim.MsgStore.sessMap();
@@ -38,7 +38,7 @@ function onMsgNotify(newMsgList) {
 
     for (var i in sessMap) {
         sess = sessMap[i];
-        console.log(sess.msgs()[sess.msgs().length-1].elems[0].content.text)
+        // console.log(sess.msgs()[sess.msgs().length-1].elems[0].content.text)
         if (selToID != sess.id()) { //更新其他聊天对象的未读消息数
             if (!dateStart) {
                 dateStart = new Date();

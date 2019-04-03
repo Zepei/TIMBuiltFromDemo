@@ -1,22 +1,31 @@
 //更新最近会话的未读消息数
 
-function updateSessDiv(sess_type, to_id, name, unread_msg_count, newMsg, newTime) {
-  console.log("updating sess",newMsg,newTime)
-  var sessTime = document.getElementById("sessTime_"+to_id);
-  var towLines = document.getElementById("towLines_"+to_id);
-  sessTime.innerHTML = webim.Tool.formatText2Html(
-    webim.Tool.formatTimeStamp(newTime, "hh:mm")
-  );
-  if (newMsg.length > maxMsgPeak) {
-    // 内容过长，截取一部分
-    newMsg = newMsg.substr(0, maxMsgPeak) + "...";
+function updateSessDiv(
+  sess_type,
+  to_id,
+  name,
+  unread_msg_count,
+  newMsg,
+  newTime
+) {
+  console.log("updating Sess")
+  if (newMsg && newTime) {
+    console.log("updating sess", newMsg, newTime);
+    var sessTime = document.getElementById("sessTime_" + to_id);
+    var towLines = document.getElementById("towLines_" + to_id);
+    sessTime.innerHTML = webim.Tool.formatText2Html(
+      webim.Tool.formatTimeStamp(newTime, "hh:mm")
+    );
+    if (newMsg.length > maxMsgPeak) {
+      // 内容过长，截取一部分
+      newMsg = newMsg.substr(0, maxMsgPeak) + "...";
+    }
+    towLines.innerHTML = newMsg;
   }
-  towLines.innerHTML = newMsg;
   var badgeDiv = document.getElementById("badgeDiv_" + to_id);
   // sessRightDiv.getElementsByClassName("sessTime");
   // console.log(sessRightDiv);
   if (badgeDiv && unread_msg_count > 0) {
-
     if (unread_msg_count >= 100) {
       unread_msg_count = "99+";
     }
@@ -56,14 +65,13 @@ function addSess(
   lstMsg,
   lstTime
 ) {
-
   // TODO: get lastMsg somewhere
   // need last message to show on twoLines div
   // and show ... at the end if too long
   // length limit for towLines is defined in index html and called maxMsgPeak
   var sessDivId = "sessDiv_" + to_id;
   var sessDiv = document.getElementById(sessDivId);
-  console.log(lstMsg, lstTime)
+  // console.log(lstMsg, lstTime)
   if (sessDiv) {
     //先判断是否存在会话DIV，已经存在，则不需要增加
     return;
@@ -137,7 +145,7 @@ function addSess(
 
   var rightDiv = document.createElement("div");
   rightDiv.className = "sessRightDiv";
-  rightDiv.id = "sessRightDiv_"+to_id;
+  rightDiv.id = "sessRightDiv_" + to_id;
 
   var firstRow = document.createElement("div");
   firstRow.className = "firstRow";
@@ -145,14 +153,14 @@ function addSess(
   var twoLines = document.createElement("p");
   twoLines.className = "towLines";
   twoLines.innerHTML = lstMsg;
-  twoLines.id = "towLines_"+to_id;
+  twoLines.id = "towLines_" + to_id;
 
   var sessTime = document.createElement("div");
   sessTime.className = "sessTime";
   sessTime.innerHTML = webim.Tool.formatText2Html(
     webim.Tool.formatTimeStamp(lstTime, "hh:mm")
   );
-  sessTime.id = "sessTime_"+to_id;
+  sessTime.id = "sessTime_" + to_id;
 
   firstRow.appendChild(nameDiv);
   firstRow.appendChild(sessTime);
@@ -194,12 +202,10 @@ function onSelSess(sess_type, to_id) {
   if (selToID != null) {
     //将之前选中用户的样式置为未选中样式
     setSelSessStyleOff(selToID);
-    
-    
+
     // 将上方聊天对象的名字切换成当前session的正确名字
-    document.getElementById("sessTitleName").innerHTML = to_id
-    
-    
+    document.getElementById("sessTitleName").innerHTML = to_id;
+
     //设置之前会话的已读消息标记
     webim.setAutoRead(selSess, true, true);
 

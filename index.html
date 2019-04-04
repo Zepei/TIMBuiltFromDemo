@@ -39,7 +39,7 @@
         <div class="msgflow"></div>
         <div
           id="msg_end"
-          style="height: 0.39vw; width: 100%; background-color: #e5e5e5"
+          style="height: 0.39vw; width: 100%; background-color: none"
         ></div>
 
         <div id="chatBottom">
@@ -3406,8 +3406,11 @@
           msgflow.onscroll = null;
         },
       };
+    
       // showAppSelect();
       // showLoginDialog();
+      // console.log(window.parent.cookie);
+      console.log(document.URL)
       webimLogin();
     </script>
   </body>

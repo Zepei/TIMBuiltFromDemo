@@ -8,6 +8,11 @@ and open the template in the editor.
     Author     : peakerdong
 */
 
+html, body{
+  height: 100%;
+  width: 100%;
+}
+
 html {
   box-sizing: border-box;
 }
@@ -18,7 +23,7 @@ html {
 }
 
 body {
-  background: #e5e5e5;
+  background: #F3F5F7;
 }
 
 #login {
@@ -29,17 +34,17 @@ body {
 
 .aio {
   display: flex;
-  flex-direction: row;
-  /* width: 100%;
-  height: 100%; */
-  width: 80.62vw;
+  width: 100%;
+  height: 100%;
+  /* width: 80.62vw; */
   /* height: 56.95vw; */
   /* padding-top: 70.64%; */
   border: none;
-  padding: 0px;
-  background: #e5e5e5;
-  margin: 20px auto;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: none;
+  margin: none;
+  /* background: #e5e5e5; */
+  /* margin: 20px auto; */
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 }
 
 .titlebar {
@@ -89,7 +94,7 @@ body {
 
 .accordion-group {
   margin-bottom: 2px;
-  border: 1px solid #e5e5e5;
+  border: 1px solid #F3F5F7;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
@@ -108,7 +113,7 @@ body {
 
 .accordion-inner {
   padding: 9px 15px;
-  border-top: 1px solid #e5e5e5;
+  border-top: 1px solid #F3F5F7;
 }
 .sesslist-recent {
   height: 450px;
@@ -122,7 +127,7 @@ body {
 .sesslist {
   /* height: 400px; */
   flex-grow: 1;
-  background: #e5e5e5;
+  background: #F3F5F7;
   border-width: 0px 1px 0px 0px;
   border-color: #d5d6d7;
   border-style: solid;
@@ -313,6 +318,7 @@ body {
   padding: 20px 6px 0 6px;
   background: #ffffff;
   overflow: auto;
+  flex-grow: 1;
 }
 .msgflow .onemsg {
   position: relative;
@@ -761,7 +767,7 @@ body {
   width: 13.83vw;
   height: 2.66vw;
   font-family: PingFang SC;
-  font-size: 14px;
+  font-size: 1.09vw;
   line-height: normal;
   color: #b3c1db;
 }
@@ -797,7 +803,7 @@ body {
 
 #sessTitleName {
   font-family: PingFang SC;
-  font-size: 18px;
+  font-size: 1.41vw;
   line-height: normal;
   color: #454f69;
   padding-left: 1.33vw;

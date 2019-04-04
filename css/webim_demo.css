@@ -30,13 +30,15 @@ body {
 .aio {
   display: flex;
   flex-direction: row;
+  /* width: 100%;
+  height: 100%; */
   width: 80.62vw;
-  height: 56.95vw;
+  /* height: 56.95vw; */
+  /* padding-top: 70.64%; */
   border: none;
   padding: 0px;
   background: #e5e5e5;
   margin: 20px auto;
-  /* font: 10px/1.5 "微软雅黑"; */
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -74,8 +76,8 @@ body {
 .sesspart {
   display: flex;
   flex-direction: column;
-  clear: both;
-  float: left;
+  /* clear: both;
+  float: left; */
   width: 27.03vw;
   height: 100%;
   margin-right: 0.39vw;

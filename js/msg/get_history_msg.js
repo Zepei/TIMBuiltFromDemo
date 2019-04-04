@@ -69,11 +69,13 @@ var getLastC2CHistoryMsgs = function(cbOk, cbError) {
 
 //向上翻页，获取更早的好友历史消息
 var getPrePageC2CHistoryMsgs = function(cbOk, cbError) {
+    // console.log("向上翻页了")
     if (selType == webim.SESSION_TYPE.GROUP) {
         alert('当前的聊天类型为群聊天，不能进行拉取好友历史消息操作');
         return;
     }
     var tempInfo = getPrePageC2CHistroyMsgInfoMap[selToID]; //获取下一次拉取的c2c消息时间和消息Key
+    // console.log(tempInfo)
     var lastMsgTime;
     var msgKey;
     if (tempInfo) {
@@ -103,8 +105,11 @@ var getPrePageC2CHistoryMsgs = function(cbOk, cbError) {
             };
             if (cbOk) {
                 cbOk(resp.MsgList);
+                // console.log("cbOK")
             } else {
                 getHistoryMsgCallback(resp.MsgList, true);
+                // console.log("getHistoryMsgCallback")
+
             }
         },
         cbError

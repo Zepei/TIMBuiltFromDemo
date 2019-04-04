@@ -160,27 +160,27 @@ function addMsg(msg, prepend) {
       msgflow.scrollTop = msgflow.scrollHeight;
     }, 300);
   }
-
-  // console.log("sessTime_" + msg.getSession().id(),"towLines_" + msg.getSession().id())
-  var sessTime = document.getElementById("sessTime_" + msg.getSession().id());
-  var towLine = document.getElementById("towLines_" + msg.getSession().id());
-  sessTime.innerHTML = webim.Tool.formatText2Html(
-    webim.Tool.formatTimeStamp(msg.getTime(), "hh:mm")
-  );
-  var twoLineText = ""
-  var elems = msg.getElems();
-  var content;
-  elems.forEach(e=>{
-    content = e.getContent().text;
-    twoLineText += content;
-  })
-  if (twoLineText.length > maxMsgPeak) {
-    // 内容过长，截取一部分
-    twoLineText = twoLineText.substr(0, maxMsgPeak) + "...";
+  // 如果不是向上翻页获得的新信息，则更新左侧session的时间和缩略内容
+  if (!prepend) {
+    var sessTime = document.getElementById("sessTime_" + msg.getSession().id());
+    var towLine = document.getElementById("towLines_" + msg.getSession().id());
+    sessTime.innerHTML = webim.Tool.formatText2Html(
+      webim.Tool.formatTimeStamp(msg.getTime(), "hh:mm")
+    );
+    var twoLineText = "";
+    var elems = msg.getElems();
+    var content;
+    elems.forEach(e => {
+      content = e.getContent().text;
+      twoLineText += content;
+    });
+    if (twoLineText.length > maxMsgPeak) {
+      // 内容过长，截取一部分
+      twoLineText = twoLineText.substr(0, maxMsgPeak) + "...";
+    }
+    towLine.innerHTML = twoLineText;
+    // console.log(towLine.innerHTML)
   }
-  towLine.innerHTML = twoLineText;
-  // console.log(towLine.innerHTML)
-
 }
 //把消息转换成Html
 
